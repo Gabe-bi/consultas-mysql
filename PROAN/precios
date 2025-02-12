@@ -1,0 +1,15 @@
+SELECT 
+ event_id, 
+ client_id, 
+ target_id, 
+ result_date, 
+ flow_id, 
+ parent_uuid, 
+ employee_id, 
+ base_price, 
+ promotion_price
+
+FROM
+ proan.pricing
+where
+ YEAR(DATE(result_date)) >= (YEAR(CURDATE()) - 1)
