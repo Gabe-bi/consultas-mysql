@@ -18,10 +18,8 @@ SELECT
  issue_type, 
  travel_start, 
  service_time, 
- travel_time, 
- loaded_at, 
- created_at, 
- created_by
+ travel_time
+ 
 FROM proan.event
 WHERE YEAR(DATE(event_date)) >= (YEAR(CURDATE()) - 1)
     -- Excluir tiendas de prueba y ficticias
