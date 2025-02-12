@@ -1,0 +1,30 @@
+SELECT 
+ event_id, 
+ event_uuid, 
+ event_code, 
+ client_id, 
+ employee_id, 
+ event_date, 
+ event_start, 
+ event_end, 
+ event_programmed_start, 
+ event_programmed_end, 
+ event_type, 
+ event_subtype, 
+ labourday_type, 
+ completion_status, 
+ has_issue, 
+ issue_id, 
+ issue_type, 
+ travel_start, 
+ service_time, 
+ travel_time, 
+ loaded_at, 
+ created_at, 
+ created_by
+FROM proan.event
+WHERE YEAR(DATE(event_date)) >= (YEAR(CURDATE()) - 1)
+    -- Excluir tiendas de prueba y ficticias
+    AND client_id NOT IN (3316, 3234, 3319, 1091, 67, 66)
+    -- Excluir empleados de prueba
+    AND employee_id NOT IN (2, 11, 175)
