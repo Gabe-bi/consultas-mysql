@@ -1,0 +1,23 @@
+SELECT 
+    result_id,
+    question_uuid, 
+    result_target_id,
+    DATE(result_start) AS result_start_date,
+    event_id, 
+    employee_id, 
+    client_id, 
+    flow_id, 
+    flow_version, 
+    flow_name, 
+    result_value, 
+    question_name
+FROM proan.result
+WHERE
+    YEAR(DATE(result_start)) >= (YEAR(CURDATE()) - 1)
+    AND question_uuid IN ('2cec38a7-2bfe-4d8f-ba03-3ae8c466da68',
+'ca471479-223f-4f72-b41d-aff2ac049d22',
+'45e2d06e-b696-49de-ad14-e6ec9e2539b1',
+'3c619190-fed5-4808-aeba-ebd1679810cb',
+'1fc52bef-a055-403c-98c4-b41c711c5f26',
+'b5f9a36d-600c-496c-8028-c7a046262120',
+'3d9f2c12-5063-45a9-afa5-e569d937662e')
