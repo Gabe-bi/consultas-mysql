@@ -1,0 +1,16 @@
+SELECT
+    result_id,
+    question_uuid,
+    CAST(result_target_id AS SIGNED) AS result_target_id,  -- Convierte a entero
+    result_start,
+    event_id,
+    event_code,
+    employee_id,
+    client_id,
+    flow_id,
+    flow_name,
+    result_value,
+    question_name
+FROM proan.`result`
+WHERE
+  result_start >= DATE_FORMAT(CURDATE() - INTERVAL 1 YEAR, '%Y-01-01')
