@@ -1,1 +1,14 @@
 
+SELECT
+    target_id, 
+    result_date,
+    event_id,
+    employee_id,
+    client_id,
+    numero_de_frentes,
+    flow_id
+FROM proan.tp_frentes
+WHERE
+    client_id NOT IN (
+        '3392','3339','3319','3234','3193','1522', '1324','1091','1050','949',  '66','67')
+    AND CONVERT(numero_de_frentes, DECIMAL(10, 2)) < 500;
